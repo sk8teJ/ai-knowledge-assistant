@@ -10,6 +10,19 @@
 
 ![Главный экран AI Knowledge Assistant](screenshots/main-interface.jpg)
 
+### Пример работы AI Assistant
+
+**1. Пользователь задаёт вопрос**
+
+![Вопрос пользователя](screenshots/question.jpg)
+
+**2. AI формирует ответ на основе документа**
+
+![Ответ AI Assistant](screenshots/answer.jpg)
+
+**3. Проверка источника ответа**
+
+![Найденный фрагмент документа](screenshots/sources.jpg)
 ## Возможности
 
 - Загрузка документов в форматах PDF, DOCX и TXT.
