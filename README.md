@@ -54,23 +54,21 @@
 
 ```mermaid
 flowchart TD
-    A["Пользователь"] --> B["Streamlit UI"]
-
-    B --> C["Загрузка документа"]
-    C --> D["Document Processor"]
-    D --> E["Text Splitter"]
-    E --> F["Gemini Embeddings"]
-    F --> G[("ChromaDB")]
-
-    B --> H["Вопрос пользователя"]
-    H --> I["RAG Pipeline"]
-    I --> J["Создание embedding вопроса"]
-    J --> K["Семантический поиск"]
-    G --> K
-    K --> L["Фильтрация по релевантности"]
-    L --> M["Gemini Flash-Lite"]
-    M --> N["Ответ и источники"]
-    N --> B
+    U["User"] --> UI["Streamlit Interface"]
+    UI --> UP["Document Upload"]
+    UP --> DP["Document Processor"]
+    DP --> TS["Text Splitter"]
+    TS --> EMB["Gemini Embeddings"]
+    EMB --> DB[("ChromaDB")]
+    UI --> Q["User Question"]
+    Q --> RAG["RAG Pipeline"]
+    RAG --> QE["Question Embedding"]
+    QE --> SEARCH["Semantic Search"]
+    DB --> SEARCH
+    SEARCH --> FILTER["Relevance Filtering"]
+    FILTER --> GEN["Gemini Flash-Lite"]
+    GEN --> OUT["Answer + Sources"]
+    OUT --> UI
 ```
 
 ## Как работает RAG
