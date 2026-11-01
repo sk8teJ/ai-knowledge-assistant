@@ -1,0 +1,38 @@
+{
+    "evaluation_date": "2026-11-01T14:19:56",
+    "total_questions": 4,
+    "successful_searches": 4,
+    "hit_at_3": 1.0,
+    "mrr": 1.0,
+    "top_k": 3,
+    "results": [
+        {
+            "question": "В каком году была основана компания ТехноМир?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 3,
+            "error": null
+        },
+        {
+            "question": "Сколько сотрудников работает в компании ТехноМир?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 3,
+            "error": null
+        },
+        {
+            "question": "Где находится главный офис компании ТехноМир?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 3,
+            "error": null
+        },
+        {
+            "question": "Чем занимается компания ТехноМир?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 3,
+            "error": null
+        }
+    ]
+}
