@@ -1,37 +1,419 @@
 {
-    "evaluation_date": "2026-11-01T14:19:56",
-    "total_questions": 4,
-    "successful_searches": 4,
+    "evaluation_date": "2026-11-06T23:21:24",
+    "top_k": 3,
+    "total_questions": 32,
+    "hit_at_1": 1.0,
     "hit_at_3": 1.0,
     "mrr": 1.0,
-    "top_k": 3,
+    "by_fact": {
+        "business_activity": {
+            "total_questions": 8,
+            "hit_at_1": 1.0,
+            "hit_at_3": 1.0,
+            "mrr": 1.0
+        },
+        "employee_count": {
+            "total_questions": 8,
+            "hit_at_1": 1.0,
+            "hit_at_3": 1.0,
+            "mrr": 1.0
+        },
+        "founding_year": {
+            "total_questions": 8,
+            "hit_at_1": 1.0,
+            "hit_at_3": 1.0,
+            "mrr": 1.0
+        },
+        "head_office": {
+            "total_questions": 8,
+            "hit_at_1": 1.0,
+            "hit_at_3": 1.0,
+            "mrr": 1.0
+        }
+    },
     "results": [
         {
+            "id": "founding_year_1",
+            "fact_id": "founding_year",
             "question": "В каком году была основана компания ТехноМир?",
             "status": "PASS",
             "relevant_rank": 1,
-            "retrieved_count": 3,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "2018"
+            ],
             "error": null
         },
         {
+            "id": "founding_year_2",
+            "fact_id": "founding_year",
+            "question": "Когда ТехноМир начал свою деятельность?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "2018"
+            ],
+            "error": null
+        },
+        {
+            "id": "founding_year_3",
+            "fact_id": "founding_year",
+            "question": "Укажи год основания ТехноМира.",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "2018"
+            ],
+            "error": null
+        },
+        {
+            "id": "founding_year_4",
+            "fact_id": "founding_year",
+            "question": "С какого года существует компания ТехноМир?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "2018"
+            ],
+            "error": null
+        },
+        {
+            "id": "founding_year_5",
+            "fact_id": "founding_year",
+            "question": "В каком году появилась компания «ТехноМир»?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "2018"
+            ],
+            "error": null
+        },
+        {
+            "id": "founding_year_6",
+            "fact_id": "founding_year",
+            "question": "Назови год, когда была основана организация ТехноМир.",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "2018"
+            ],
+            "error": null
+        },
+        {
+            "id": "founding_year_7",
+            "fact_id": "founding_year",
+            "question": "Какой год указан как дата основания ТехноМира?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "2018"
+            ],
+            "error": null
+        },
+        {
+            "id": "founding_year_8",
+            "fact_id": "founding_year",
+            "question": "Год создания компании ТехноМир?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "2018"
+            ],
+            "error": null
+        },
+        {
+            "id": "employee_count_1",
+            "fact_id": "employee_count",
             "question": "Сколько сотрудников работает в компании ТехноМир?",
             "status": "PASS",
             "relevant_rank": 1,
-            "retrieved_count": 3,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "150 сотрудников"
+            ],
             "error": null
         },
         {
+            "id": "employee_count_2",
+            "fact_id": "employee_count",
+            "question": "Какова численность штата ТехноМира?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "150 сотрудников"
+            ],
+            "error": null
+        },
+        {
+            "id": "employee_count_3",
+            "fact_id": "employee_count",
+            "question": "Сколько человек работает в этой компании?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "150 сотрудников"
+            ],
+            "error": null
+        },
+        {
+            "id": "employee_count_4",
+            "fact_id": "employee_count",
+            "question": "Какой размер команды у ТехноМира?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "150 сотрудников"
+            ],
+            "error": null
+        },
+        {
+            "id": "employee_count_5",
+            "fact_id": "employee_count",
+            "question": "Сколько работников числится в компании?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "150 сотрудников"
+            ],
+            "error": null
+        },
+        {
+            "id": "employee_count_6",
+            "fact_id": "employee_count",
+            "question": "Назови количество сотрудников ТехноМира.",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "150 сотрудников"
+            ],
+            "error": null
+        },
+        {
+            "id": "employee_count_7",
+            "fact_id": "employee_count",
+            "question": "Какова численность персонала компании?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "150 сотрудников"
+            ],
+            "error": null
+        },
+        {
+            "id": "employee_count_8",
+            "fact_id": "employee_count",
+            "question": "Сколько человек входит в штат ТехноМира?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "150 сотрудников"
+            ],
+            "error": null
+        },
+        {
+            "id": "head_office_1",
+            "fact_id": "head_office",
             "question": "Где находится главный офис компании ТехноМир?",
             "status": "PASS",
             "relevant_rank": 1,
-            "retrieved_count": 3,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "нижнем новгороде"
+            ],
             "error": null
         },
         {
+            "id": "head_office_2",
+            "fact_id": "head_office",
+            "question": "В каком городе расположен головной офис ТехноМира?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "нижнем новгороде"
+            ],
+            "error": null
+        },
+        {
+            "id": "head_office_3",
+            "fact_id": "head_office",
+            "question": "Назови город, в котором находится офис компании.",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "нижнем новгороде"
+            ],
+            "error": null
+        },
+        {
+            "id": "head_office_4",
+            "fact_id": "head_office",
+            "question": "В каком населённом пункте расположен центральный офис ТехноМира?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "нижнем новгороде"
+            ],
+            "error": null
+        },
+        {
+            "id": "head_office_5",
+            "fact_id": "head_office",
+            "question": "Где расположен основной офис компании?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "нижнем новгороде"
+            ],
+            "error": null
+        },
+        {
+            "id": "head_office_6",
+            "fact_id": "head_office",
+            "question": "Какой город указан как местонахождение главного офиса?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "нижнем новгороде"
+            ],
+            "error": null
+        },
+        {
+            "id": "head_office_7",
+            "fact_id": "head_office",
+            "question": "В каком городе базируется ТехноМир?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "нижнем новгороде"
+            ],
+            "error": null
+        },
+        {
+            "id": "head_office_8",
+            "fact_id": "head_office",
+            "question": "Укажи местоположение штаб-квартиры ТехноМира.",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "нижнем новгороде"
+            ],
+            "error": null
+        },
+        {
+            "id": "business_activity_1",
+            "fact_id": "business_activity",
             "question": "Чем занимается компания ТехноМир?",
             "status": "PASS",
             "relevant_rank": 1,
-            "retrieved_count": 3,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "разработка программного обеспечения"
+            ],
+            "error": null
+        },
+        {
+            "id": "business_activity_2",
+            "fact_id": "business_activity",
+            "question": "Какова основная деятельность ТехноМира?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "разработка программного обеспечения"
+            ],
+            "error": null
+        },
+        {
+            "id": "business_activity_3",
+            "fact_id": "business_activity",
+            "question": "В какой сфере работает эта компания?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "разработка программного обеспечения"
+            ],
+            "error": null
+        },
+        {
+            "id": "business_activity_4",
+            "fact_id": "business_activity",
+            "question": "Какое программное направление развивает ТехноМир?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "разработка программного обеспечения"
+            ],
+            "error": null
+        },
+        {
+            "id": "business_activity_5",
+            "fact_id": "business_activity",
+            "question": "Какое направление деятельности указано для компании?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "разработка программного обеспечения"
+            ],
+            "error": null
+        },
+        {
+            "id": "business_activity_6",
+            "fact_id": "business_activity",
+            "question": "Что разрабатывает ТехноМир?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "разработка программного обеспечения"
+            ],
+            "error": null
+        },
+        {
+            "id": "business_activity_7",
+            "fact_id": "business_activity",
+            "question": "Опиши специализацию компании ТехноМир.",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "разработка программного обеспечения"
+            ],
+            "error": null
+        },
+        {
+            "id": "business_activity_8",
+            "fact_id": "business_activity",
+            "question": "С каким видом деятельности связана компания?",
+            "status": "PASS",
+            "relevant_rank": 1,
+            "retrieved_count": 1,
+            "matched_terms": [
+                "разработка программного обеспечения"
+            ],
             "error": null
         }
     ]
