@@ -1,8 +1,28 @@
 # AI Knowledge Assistant
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/sk8teJ/ai-knowledge-assistant/design/visual-readme-refresh/assets/readme-banner.svg" alt="AI Knowledge Assistant banner" width="100%">
+</div>
+<p>
+  <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white">
+  <img alt="Streamlit" src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white">
+  <img alt="Gemini" src="https://img.shields.io/badge/Gemini-8E75B2?style=flat-square&logo=googlegemini&logoColor=white">
+  <img alt="ChromaDB" src="https://img.shields.io/badge/ChromaDB-5B6CFF?style=flat-square">
+  <img alt="Educational project" src="https://img.shields.io/badge/Project-Educational-64748B?style=flat-square">
+</p>
+
 **AI Knowledge Assistant** — приложение для поиска информации и ответов на вопросы по загруженным документам с использованием подхода RAG (Retrieval-Augmented Generation).
 
 Пользователь загружает документ, задаёт вопрос на естественном языке и получает ответ, сформированный на основе найденных фрагментов документа. Приложение показывает источники, использованные при подготовке ответа.
+
+
+## Навигация
+
+- [Возможности](#возможности)
+- [Архитектура](#архитектура)
+- [Технологии](#технологии)
+- [Установка и запуск](#локальный-запуск)
+
 
 ## Демонстрация работы
 
