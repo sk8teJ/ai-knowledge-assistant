@@ -67,6 +67,7 @@ def run_evaluation():
         print(f"\nТест {index}/{len(questions)} [{test.get('id', 'без ID')}]")
         print(f"Вопрос: {question}")
 
+        error_message = None
         try:
             answer, sources = answer_question(question)
             lexical_pass = check_answer(
@@ -88,7 +89,8 @@ def run_evaluation():
             sources = []
             lexical_pass = False
             source_pass = False
-            print(f"Результат: ERROR; {error}")
+            error_message = str(error)
+            print(f"Результат: ERROR; {error_message}")
 
         results.append({
             "id": test.get("id"),
@@ -99,7 +101,7 @@ def run_evaluation():
             "source_check": source_pass,
             "sources_count": len(sources),
             "answer": answer,
-            "error": str(error) if status == "ERROR" else None
+            "error": error_message
         })
 
     total = len(questions)
