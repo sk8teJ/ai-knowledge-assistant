@@ -1,19 +1,282 @@
-
 [
     {
+        "id": "founding_year_1",
+        "fact_id": "founding_year",
         "question": "В каком году была основана компания ТехноМир?",
-        "expected_terms": ["2018"]
+        "expected_terms": [
+            "2018"
+        ]
     },
     {
+        "id": "founding_year_2",
+        "fact_id": "founding_year",
+        "question": "Когда ТехноМир начал свою деятельность?",
+        "expected_terms": [
+            "2018"
+        ]
+    },
+    {
+        "id": "founding_year_3",
+        "fact_id": "founding_year",
+        "question": "Укажи год основания ТехноМира.",
+        "expected_terms": [
+            "2018"
+        ]
+    },
+    {
+        "id": "founding_year_4",
+        "fact_id": "founding_year",
+        "question": "С какого года существует компания ТехноМир?",
+        "expected_terms": [
+            "2018"
+        ]
+    },
+    {
+        "id": "founding_year_5",
+        "fact_id": "founding_year",
+        "question": "В каком году появилась компания «ТехноМир»?",
+        "expected_terms": [
+            "2018"
+        ]
+    },
+    {
+        "id": "founding_year_6",
+        "fact_id": "founding_year",
+        "question": "Назови год, когда была основана организация ТехноМир.",
+        "expected_terms": [
+            "2018"
+        ]
+    },
+    {
+        "id": "founding_year_7",
+        "fact_id": "founding_year",
+        "question": "Какой год указан как дата основания ТехноМира?",
+        "expected_terms": [
+            "2018"
+        ]
+    },
+    {
+        "id": "founding_year_8",
+        "fact_id": "founding_year",
+        "question": "Год создания компании ТехноМир?",
+        "expected_terms": [
+            "2018"
+        ]
+    },
+    {
+        "id": "employee_count_1",
+        "fact_id": "employee_count",
         "question": "Сколько сотрудников работает в компании ТехноМир?",
-        "expected_terms": ["150 человек", "150 сотрудников"]
+        "expected_terms": [
+            "150 сотрудников",
+            "150 человек"
+        ]
     },
     {
+        "id": "employee_count_2",
+        "fact_id": "employee_count",
+        "question": "Какова численность штата ТехноМира?",
+        "expected_terms": [
+            "150 сотрудников",
+            "150 человек"
+        ]
+    },
+    {
+        "id": "employee_count_3",
+        "fact_id": "employee_count",
+        "question": "Сколько человек работает в этой компании?",
+        "expected_terms": [
+            "150 сотрудников",
+            "150 человек"
+        ]
+    },
+    {
+        "id": "employee_count_4",
+        "fact_id": "employee_count",
+        "question": "Какой размер команды у ТехноМира?",
+        "expected_terms": [
+            "150 сотрудников",
+            "150 человек"
+        ]
+    },
+    {
+        "id": "employee_count_5",
+        "fact_id": "employee_count",
+        "question": "Сколько работников числится в компании?",
+        "expected_terms": [
+            "150 сотрудников",
+            "150 человек"
+        ]
+    },
+    {
+        "id": "employee_count_6",
+        "fact_id": "employee_count",
+        "question": "Назови количество сотрудников ТехноМира.",
+        "expected_terms": [
+            "150 сотрудников",
+            "150 человек"
+        ]
+    },
+    {
+        "id": "employee_count_7",
+        "fact_id": "employee_count",
+        "question": "Какова численность персонала компании?",
+        "expected_terms": [
+            "150 сотрудников",
+            "150 человек"
+        ]
+    },
+    {
+        "id": "employee_count_8",
+        "fact_id": "employee_count",
+        "question": "Сколько человек входит в штат ТехноМира?",
+        "expected_terms": [
+            "150 сотрудников",
+            "150 человек"
+        ]
+    },
+    {
+        "id": "head_office_1",
+        "fact_id": "head_office",
         "question": "Где находится главный офис компании ТехноМир?",
-        "expected_terms": ["Нижнем Новгороде", "Нижний Новгород"]
+        "expected_terms": [
+            "Нижний Новгород",
+            "Нижнем Новгороде"
+        ]
     },
     {
+        "id": "head_office_2",
+        "fact_id": "head_office",
+        "question": "В каком городе расположен головной офис ТехноМира?",
+        "expected_terms": [
+            "Нижний Новгород",
+            "Нижнем Новгороде"
+        ]
+    },
+    {
+        "id": "head_office_3",
+        "fact_id": "head_office",
+        "question": "Назови город, в котором находится офис компании.",
+        "expected_terms": [
+            "Нижний Новгород",
+            "Нижнем Новгороде"
+        ]
+    },
+    {
+        "id": "head_office_4",
+        "fact_id": "head_office",
+        "question": "В каком населённом пункте расположен центральный офис ТехноМира?",
+        "expected_terms": [
+            "Нижний Новгород",
+            "Нижнем Новгороде"
+        ]
+    },
+    {
+        "id": "head_office_5",
+        "fact_id": "head_office",
+        "question": "Где расположен основной офис компании?",
+        "expected_terms": [
+            "Нижний Новгород",
+            "Нижнем Новгороде"
+        ]
+    },
+    {
+        "id": "head_office_6",
+        "fact_id": "head_office",
+        "question": "Какой город указан как местонахождение главного офиса?",
+        "expected_terms": [
+            "Нижний Новгород",
+            "Нижнем Новгороде"
+        ]
+    },
+    {
+        "id": "head_office_7",
+        "fact_id": "head_office",
+        "question": "В каком городе базируется ТехноМир?",
+        "expected_terms": [
+            "Нижний Новгород",
+            "Нижнем Новгороде"
+        ]
+    },
+    {
+        "id": "head_office_8",
+        "fact_id": "head_office",
+        "question": "Укажи местоположение штаб-квартиры ТехноМира.",
+        "expected_terms": [
+            "Нижний Новгород",
+            "Нижнем Новгороде"
+        ]
+    },
+    {
+        "id": "business_activity_1",
+        "fact_id": "business_activity",
         "question": "Чем занимается компания ТехноМир?",
-        "expected_terms": ["разработка программного обеспечения"]
+        "expected_terms": [
+            "разработкой программного обеспечения",
+            "разработка программного обеспечения"
+        ]
+    },
+    {
+        "id": "business_activity_2",
+        "fact_id": "business_activity",
+        "question": "Какова основная деятельность ТехноМира?",
+        "expected_terms": [
+            "разработкой программного обеспечения",
+            "разработка программного обеспечения"
+        ]
+    },
+    {
+        "id": "business_activity_3",
+        "fact_id": "business_activity",
+        "question": "В какой сфере работает эта компания?",
+        "expected_terms": [
+            "разработкой программного обеспечения",
+            "разработка программного обеспечения"
+        ]
+    },
+    {
+        "id": "business_activity_4",
+        "fact_id": "business_activity",
+        "question": "Какое программное направление развивает ТехноМир?",
+        "expected_terms": [
+            "разработкой программного обеспечения",
+            "разработка программного обеспечения"
+        ]
+    },
+    {
+        "id": "business_activity_5",
+        "fact_id": "business_activity",
+        "question": "Какое направление деятельности указано для компании?",
+        "expected_terms": [
+            "разработкой программного обеспечения",
+            "разработка программного обеспечения"
+        ]
+    },
+    {
+        "id": "business_activity_6",
+        "fact_id": "business_activity",
+        "question": "Что разрабатывает ТехноМир?",
+        "expected_terms": [
+            "разработкой программного обеспечения",
+            "разработка программного обеспечения"
+        ]
+    },
+    {
+        "id": "business_activity_7",
+        "fact_id": "business_activity",
+        "question": "Опиши специализацию компании ТехноМир.",
+        "expected_terms": [
+            "разработкой программного обеспечения",
+            "разработка программного обеспечения"
+        ]
+    },
+    {
+        "id": "business_activity_8",
+        "fact_id": "business_activity",
+        "question": "С каким видом деятельности связана компания?",
+        "expected_terms": [
+            "разработкой программного обеспечения",
+            "разработка программного обеспечения"
+        ]
     }
 ]

@@ -1,4 +1,3 @@
-
 import json
 import sys
 from datetime import datetime
@@ -6,20 +5,8 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-
-sys.path.insert(0, str(PROJECT_ROOT / "app"))
-
-from vector_store import search_chunks
-
-
-QUESTIONS_FILE = (
-    PROJECT_ROOT / "evaluation" / "retrieval_questions.json"
-)
-
-REPORT_FILE = (
-    PROJECT_ROOT / "evaluation" / "retrieval_report.json"
-)
-
+QUESTIONS_FILE = PROJECT_ROOT / "evaluation" / "retrieval_questions.json"
+REPORT_FILE = PROJECT_ROOT / "evaluation" / "retrieval_report.json"
 TOP_K = 3
 
 
@@ -27,132 +14,109 @@ def normalize_text(text: str) -> str:
     return " ".join(text.lower().split())
 
 
-def run_evaluation():
+def calculate_metrics(results: list[dict], top_k: int = TOP_K) -> dict:
+    """Calculate ranking metrics from per-question relevant ranks."""
+    total = len(results)
+    if not total:
+        return {"total_questions": 0, "hit_at_1": 0.0, f"hit_at_{top_k}": 0.0, "mrr": 0.0}
 
+    ranks = [item.get("relevant_rank") for item in results]
+    hit_at_1 = sum(rank == 1 for rank in ranks) / total
+    hit_at_k = sum(rank is not None and rank <= top_k for rank in ranks) / total
+    mrr = sum((1 / rank) if rank else 0 for rank in ranks) / total
+
+    return {
+        "total_questions": total,
+        "hit_at_1": round(hit_at_1, 4),
+        f"hit_at_{top_k}": round(hit_at_k, 4),
+        "mrr": round(mrr, 4)
+    }
+
+
+def run_evaluation():
     with open(QUESTIONS_FILE, "r", encoding="utf-8") as file:
         questions = json.load(file)
 
-    hits = 0
-    reciprocal_ranks = []
-    test_results = []
+    if not questions:
+        raise ValueError("Набор retrieval_questions.json пуст.")
 
+    for item in questions:
+        if not item.get("question") or not item.get("expected_terms"):
+            raise ValueError(f"Некорректный тест: {item}")
+
+    # Import only when the live evaluation is started. This keeps metric
+    # helpers importable in offline unit tests without a Gemini API key.
+    sys.path.insert(0, str(PROJECT_ROOT / "app"))
+    from vector_store import search_chunks
+
+    test_results = []
     print("\nОЦЕНКА КАЧЕСТВА ПОИСКА")
-    print("=" * 50)
+    print("=" * 60)
 
     for index, test in enumerate(questions, start=1):
-
         question = test["question"]
-
-        expected_terms = [
-            normalize_text(term)
-            for term in test["expected_terms"]
-        ]
-
-        print(f"\nТест {index}/{len(questions)}")
-        print(f"Вопрос: {question}")
-
+        expected_terms = [normalize_text(term) for term in test["expected_terms"]]
         relevant_rank = None
-        error_message = None
         retrieved_count = 0
+        error_message = None
+        matched_terms = []
+
+        print(f"\nТест {index}/{len(questions)}: {question}")
 
         try:
-            results = search_chunks(
-                query=question,
-                n_results=TOP_K
-            )
+            chunks = search_chunks(query=question, n_results=TOP_K)
+            retrieved_count = len(chunks)
 
-            retrieved_count = len(results)
-
-            for rank, chunk in enumerate(results, start=1):
-
+            for rank, chunk in enumerate(chunks, start=1):
                 chunk_text = normalize_text(chunk["text"])
-
-                if any(
-                    term in chunk_text
-                    for term in expected_terms
-                ):
+                matches = [term for term in expected_terms if term in chunk_text]
+                if matches:
                     relevant_rank = rank
+                    matched_terms = matches
                     break
 
-            if relevant_rank is not None:
-                hits += 1
-                reciprocal_ranks.append(1 / relevant_rank)
-
-                status = "PASS"
-
-                print("Результат: PASS")
-                print(
-                    f"Нужный фрагмент найден на позиции: "
-                    f"{relevant_rank}"
-                )
-
-            else:
-                reciprocal_ranks.append(0)
-                status = "FAIL"
-
-                print("Результат: FAIL")
-                print("Нужный фрагмент не найден в TOP-3")
-
-            print(f"Получено фрагментов: {retrieved_count}")
-
+            status = "PASS" if relevant_rank is not None else "FAIL"
+            print(f"Результат: {status}; позиция: {relevant_rank}")
         except Exception as error:
-
-            reciprocal_ranks.append(0)
             status = "ERROR"
             error_message = str(error)
-
-            print("Результат: ERROR")
-            print(f"Ошибка: {error}")
+            print(f"Результат: ERROR; {error_message}")
 
         test_results.append({
+            "id": test.get("id"),
+            "fact_id": test.get("fact_id"),
             "question": question,
             "status": status,
             "relevant_rank": relevant_rank,
             "retrieved_count": retrieved_count,
+            "matched_terms": matched_terms,
             "error": error_message
         })
 
-    total = len(questions)
-
-    hit_at_3 = hits / total if total else 0
-
-    mrr = (
-        sum(reciprocal_ranks) / total
-        if total else 0
-    )
+    metrics = calculate_metrics(test_results, TOP_K)
+    fact_results = {}
+    for fact_id in sorted({item.get("fact_id") for item in questions if item.get("fact_id")}):
+        subset = [result for result in test_results if result.get("fact_id") == fact_id]
+        fact_results[fact_id] = calculate_metrics(subset, TOP_K)
 
     report = {
-        "evaluation_date": datetime.now().isoformat(
-            timespec="seconds"
-        ),
-        "total_questions": total,
-        "successful_searches": hits,
-        "hit_at_3": round(hit_at_3, 4),
-        "mrr": round(mrr, 4),
+        "evaluation_date": datetime.now().isoformat(timespec="seconds"),
         "top_k": TOP_K,
+        **metrics,
+        "by_fact": fact_results,
         "results": test_results
     }
 
     with open(REPORT_FILE, "w", encoding="utf-8") as file:
-        json.dump(
-            report,
-            file,
-            ensure_ascii=False,
-            indent=4
-        )
+        json.dump(report, file, ensure_ascii=False, indent=4)
 
-    print("\n" + "=" * 50)
-    print("ИТОГИ ОЦЕНКИ ПОИСКА")
-
-    print(f"Всего вопросов: {total}")
-    print(f"Найдено нужных фрагментов: {hits}")
-    print(f"Hit@3: {hit_at_3 * 100:.1f}%")
-    print(f"MRR: {mrr:.3f}")
-
-    print("\nОтчёт сохранён:")
-    print(REPORT_FILE)
-
-    print("=" * 50)
+    print("\n" + "=" * 60)
+    print(f"Вопросов: {metrics['total_questions']}")
+    print(f"Hit@1: {metrics['hit_at_1'] * 100:.1f}%")
+    print(f"Hit@{TOP_K}: {metrics[f'hit_at_{TOP_K}'] * 100:.1f}%")
+    print(f"MRR: {metrics['mrr']:.3f}")
+    print(f"Ошибок выполнения: {sum(item['status'] == 'ERROR' for item in test_results)}")
+    print(f"Отчёт сохранён: {REPORT_FILE}")
 
 
 if __name__ == "__main__":
