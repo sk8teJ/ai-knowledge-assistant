@@ -1,7 +1,7 @@
 # AI Knowledge Assistant
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/sk8teJ/ai-knowledge-assistant/design/visual-readme-refresh/assets/readme-banner.svg" alt="AI Knowledge Assistant banner" width="100%">
+  <img src="https://raw.githubusercontent.com/sk8teJ/ai-knowledge-assistant/main/assets/readme-banner.svg" alt="AI Knowledge Assistant banner" width="100%">
 </div>
 <p>
   <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white">
