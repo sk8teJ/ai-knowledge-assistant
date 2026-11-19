@@ -3,6 +3,9 @@ from pathlib import Path
 
 import fitz
 from docx import Document
+from docx.oxml.ns import qn
+from docx.table import Table
+from docx.text.paragraph import Paragraph
 
 
 def extract_text(file_name: str, file_bytes: bytes) -> str:
@@ -25,14 +28,23 @@ def extract_text(file_name: str, file_bytes: bytes) -> str:
     # Чтение Word
     elif extension == ".docx":
         document = Document(BytesIO(file_bytes))
+        text_parts = []
 
-        paragraphs = [
-            paragraph.text
-            for paragraph in document.paragraphs
-            if paragraph.text.strip()
-        ]
+        # Сохраняем порядок абзацев и таблиц в документе.
+        for element in document.element.body.iterchildren():
+            if element.tag == qn("w:p"):
+                paragraph = Paragraph(element, document)
+                if paragraph.text.strip():
+                    text_parts.append(paragraph.text)
 
-        return "\n".join(paragraphs)
+            elif element.tag == qn("w:tbl"):
+                table = Table(element, document)
+                for row in table.rows:
+                    cells = [cell.text.strip() for cell in row.cells]
+                    if any(cells):
+                        text_parts.append(" | ".join(cells))
+
+        return "\n".join(text_parts)
 
     # Чтение обычного текстового файла
     elif extension == ".txt":
